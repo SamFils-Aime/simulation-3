@@ -64,7 +64,7 @@ You have already created a React application as part of setting up the Github re
 8) Set up `massive` in your server using the connection string you saved in your `.env` file.
 9) Make sure to run `nodemon` again and make sure your database is connecting.
 10) Copy the connection string from your `.env` file into `SQLTabs` and create the users table and the posts table.
-11) Update the password column on your users table from datatype VARCHAR(20) to datatype TEXT using an ALTER TABLE command. Save this command to an SQL file in your `db` folder. Your mentor will check this after you have completed your skills check. 
+11) Update the password column on your users table to datatype text.
 12) It's helpful to insert some dummy data into your database at this point to help you test as you go along. 
 
 # Part 1
@@ -299,19 +299,21 @@ Now you will add the ability to add a new post.
 Now you will add the ability to delete a post.
 
 * On the Post component create a 'Delete' button.
-   * The delete button can contain text of 'Delete Post' or be an image. 
-* The delete button should only be visible on posts the current user has created by comparing the current user id to the post author id, so you will need to connect to Redux and pull the current user id off of Redux state.
-  * Make sure you bring in the `connect` method from `react-redux`.
-    * Write the `mapStateToProps` function at the bottom of the file. Pull the user id off of Redux State.
-    * Invoke the `connect` method, passing in the `mapStateToProps` function and then invoking it with the component name as an argument.
+   * This can be an actual 'Delete Post' button or just an X. 
+   * It should route to Dashboard when clicked.
+* Next you will need to connect to Redux and pull the user id off of Redux state.
+  * Bring in the `connect` method from `react-redux`.
+  * Write the `mapStateToProps` function at the bottom of the file. Pull the user id off of Redux State.
+  * Invoke the `connect` method, passing in the `mapStateToProps` function and then invoking it with the component name as an argument.
+  * The delete button should only be visible on posts the current user had created by compairing user and author id.
 * Write a DELETE endpoint in your server.
   * The endpoint should accept a parameter for the post id.
   * The endpoint should respond with the updated list of posts once it has deleted the post from the database.
-* Write the method in Dashboard that sends the delete request to the endpoint you just wrote.
+* Write a method in Dashboard that sends a request to the endpoint you just wrote.
   * Pass this function to the Post component through props. 
   * It should be used when you press the Delete button
   * The `axios` request should include the post id as a parameter.
-  * Once the response comes back from the server, update the posts array on Dashboard's state.
+  * Once the response comes back from the server, update the posts array on state.
 
 # Part 3
 

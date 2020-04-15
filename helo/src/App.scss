@@ -1,0 +1,24 @@
+@import './styles/Auth';
+@import './styles/Nav';
+@import './styles/Form';
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+input:focus { outline: none }
+
+.account {
+  display: flex;
+  height: 100vh;
+}
+
+.content-container {
+  background-color: #f2f2f2;
+  padding: 10px;
+  flex-basis: 90%;
+
+  &--inner {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
